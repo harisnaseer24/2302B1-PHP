@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <style>
         table,tr{
 width:100%;
@@ -24,19 +26,10 @@ font-size:24px;
     <h1>Connecting with database</h1>
     <?php 
     
-$server="localhost";
-$username="root";
-$dbpass="";
-$dbname="2302B1";
+require "config.php";
+  
 
 
-$con= mysqli_connect($server,$username,$dbpass,$dbname);
-// $con= mysqli_connect("localhost","root","","2302B1");
-
-if(!$con){
-die("failed to connect database");
-}else{
-    // echo "Db Connected";
 
     $query="SELECT * FROM `products`";
 
@@ -53,9 +46,9 @@ die("failed to connect database");
         <th>Product Name</th>
         <th>Price</th>
         <th>Stock</th>
+        <th>Actions</th>
        
     </tr>
-
 
 <?php
 
@@ -66,6 +59,10 @@ echo "<td>".$row['id']."</td>";
 echo "<td>".$row['name']."</td>";
 echo "<td>".$row['price']."</td>";
 echo "<td>".$row['stock']."</td>";
+echo "<td>
+<a href='update.php?id=".$row['id']."' class='btn btn-success'>Update</a>
+<a href='delete.php' class='btn btn-danger'>Delete</a>
+</td>";
 echo "</tr>";
 }
 echo "</table>";
@@ -73,7 +70,7 @@ echo "</table>";
     else{
         echo "no records found";
     }
-}
+
   ?>
 </body>
 </html>

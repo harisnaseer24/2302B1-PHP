@@ -43,7 +43,7 @@ $query="INSERT INTO `products`( `name`, `price`, `stock`) VALUES ('$pname','$pri
 $result=mysqli_query($conn , $query);
 
 if($result){
-   
+
 echo '<script>alert("Record inserted Succesfully")</script>';
 
 }
