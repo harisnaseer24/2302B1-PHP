@@ -26,8 +26,8 @@ $stock= $row['stock'];
 <input class="form-control my-3 px-auto" type="number" name="price" id=""  value="<?php echo $price ?>"><br>
 <input class="form-control my-3 px-auto" type="number" name="stock" id=""  value="<?php echo $stock ?>"><br>
 <input class="form-control my-3 px-auto btn btn-success" type="submit" name="Add" id="" value="Update">
-    </form>
-    </div>
+   </form>
+</div>
 
 
 <?php 

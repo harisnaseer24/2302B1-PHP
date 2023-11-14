@@ -27,10 +27,6 @@ font-size:24px;
     <?php 
     
 require "config.php";
-  
-
-
-
     $query="SELECT * FROM `products`";
 
     $result=mysqli_query($con , $query);
@@ -61,7 +57,7 @@ echo "<td>".$row['price']."</td>";
 echo "<td>".$row['stock']."</td>";
 echo "<td>
 <a href='update.php?id=".$row['id']."' class='btn btn-success'>Update</a>
-<a href='delete.php' class='btn btn-danger'>Delete</a>
+<a href='delete.php?id=".$row['id']."' class='btn btn-danger'>Delete</a>
 </td>";
 echo "</tr>";
 }
