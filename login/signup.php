@@ -21,15 +21,14 @@ require "../partials/header.php";
 if(isset($_POST['signup'])){
     $username= mysqli_real_escape_string($con,$_POST['username']);
     $email= mysqli_real_escape_string($con,$_POST['email']);
-  $password= mysqli_real_escape_string($con,$_POST['password']);
-// ECHO"<BR>";
-$encryted_pass=password_hash($password, PASSWORD_BCRYPT);
-//    ECHO $encryted_pass=MD5($password);
-//TO CHECK DUPLCIATE USER
+  $password= mysqli_real_escape_string($con,$_POST['password']);//1
+
+$encryted_pass=password_hash($password, PASSWORD_BCRYPT);//$2y$10$HKVEdIYmIxZIiEoX5zil4uiXh4aeQ/Lbt3XcQIcx5GiSWMytBMhfG
+
 $check="SELECT * FROM `users` WHERE email = '$email';";
 $result=mysqli_query($con , $check) or die("failed to run query");
 if(mysqli_num_rows($result) > 0){
-    echo " <script>alert('User Already registered')</script>";
+    echo "<script>alert('User Already registered')</script>";
 }
 else{
     $add="INSERT INTO `users`(`username`, `email`, `password`) VALUES ('$username','$email','$encryted_pass')";
