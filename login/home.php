@@ -2,8 +2,8 @@
 require "../partials/config.php";
 require "../partials/header.php";
 session_start();
-
-
+if(isset($_SESSION['username'])){
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,6 @@ session_start();
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-
       </ul>
       <div class="d-flex me-7" >
       <div class="nav-item dropdown text-light">
@@ -49,3 +48,9 @@ session_start();
 </nav>
 </body>
 </html>
+<?php 
+}
+else{
+  header("location: login.php");   
+}
+?>
