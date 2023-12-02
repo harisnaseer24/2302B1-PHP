@@ -17,12 +17,12 @@ function sendRecoverylink($token, $email, $username){
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'harisnaseer258@gmail.com';                     //SMTP username
-        $mail->Password   = 'lmye kanh ixes xnra';                               //SMTP password
+        $mail->Username   = 'your email';                     //SMTP username
+        $mail->Password   = '';                               //SMTP password
         $mail->SMTPSecure = 'TLS';  //Enable implicit TLS encryption
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
         //Recipients
-        $mail->setFrom('harisnaseer258@gmail.com', 'The Web Devs');
+        $mail->setFrom('your email', 'The Web Devs');
         $mail->addAddress($email, $username);     //Add a recipient
     
         //Content

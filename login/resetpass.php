@@ -21,26 +21,23 @@ if(isset($_POST['updatepass']))
         $email="";
     }
 
-    $check="SELECT * FROM `users` WHERE email='$email';";
+    $check="SELECT * FROM `users` WHERE email='$email' AND token='$token';";
     $result=mysqli_query($con, $check) or die('failed to execute query');
    
    if(mysqli_num_rows($result) > 0)
    {
-  
+    $row=mysqli_fetch_assoc($result);
+    if($newpassword==$cpassword && !($newpassword=$cpassword=="")){
     $hashpass=password_hash($newpassword, PASSWORD_BCRYPT);
     $newtoken=md5(rand());
 
-    if($newpassword="" || $cpassword=""){
-        echo "<script>alert('Please fill all fields')</script>";
-    }
-    elseif($newpassword==$cpassword){
         $updatepass="UPDATE `users` SET `password`='$hashpass',`token`='$newtoken' WHERE email='$email' and token='$token';";
         $updatepass_run=mysqli_query($con, $updatepass) or die("failed");
         
         if($updatepass_run){
             echo "<script>alert('Now you can login with new password')
             
-            window.location.href='login.php'
+            windows.location.href='login.php'
             </script>";
          }
         
