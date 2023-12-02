@@ -14,11 +14,13 @@ require "../partials/header.php";
    
     <input type="email" name="loginemail" id="" class="form-control my-2" placeholder="Enter email">
     <input type="password" name="loginpassword" id="" class="form-control my-2" placeholder="Enter password">
+    <a href="forgetpass.php">Forget your password?</a>
     <input type="submit" name="login" id="" class="form-control btn btn-primary my-2">
     </form>
 </div>    
 <?php 
 if(isset($_POST['login'])){
+    
  $email= mysqli_real_escape_string($con,$_POST['loginemail']);
   $password= mysqli_real_escape_string($con,$_POST['loginpassword']);//string
 

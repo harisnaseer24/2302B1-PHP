@@ -14,7 +14,7 @@ require "../partials/header.php";
     <input type="text" name="username" id="" class="form-control my-2" placeholder="Enter username">
     <input type="email" name="email" id="" class="form-control my-2" placeholder="Enter email">
     <input type="password" name="password" id="" class="form-control my-2" placeholder="Enter password">
-    <input type="" name="signup" id="" class="form-control btn btn-primary my-2">
+    <input type="submit" name="signup" id="" class="form-control btn btn-primary my-2" value="signup">
     </form>
 </div>    
 <?php 

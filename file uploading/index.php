@@ -17,7 +17,7 @@ $size=$_FILES['carimage']['size'];
 
 $validextension=["png","jpg","jpeg"];
 $extension= explode(".",$imagename);//audi.etron.jpg=> [audi ,etron , jpg]
- $extension= strtolower(end($extension));//js
+ $extension= strtolower(end($extension));//jpg
 // print_r($extension);
 
 if($size > 10000000){
@@ -31,10 +31,11 @@ else{
  $newImagename .= ".".$extension;
  $insert="INSERT INTO `cars`( `name`, `model`, `price`, `image`) VALUES ('$Car','$CarModel','$Price','$newImagename')";
 
- move_uploaded_file($tmpname,"img/".$newImagename);
+ 
 
  $result=mysqli_query($con, $insert) or die("failed to execute");
  if($result){
+    move_uploaded_file($tmpname,"img/".$newImagename);
     echo '<script>alert("Successfully inserted.")</script>';
  }
  else{
