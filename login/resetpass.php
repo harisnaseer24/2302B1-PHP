@@ -48,8 +48,6 @@ if(isset($_POST['updatepass']))
     }
     else{
         echo "<script>alert('Password does not match')</script>";
-
-
 }
     }
 
