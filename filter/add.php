@@ -1,6 +1,7 @@
 <?php 
 include "../partials/header.php";
 include "../partials/config.php";
+include "nav.php";
 
 if(isset($_POST['register']) && $_SERVER['REQUEST_METHOD']=='POST'){
 $Car=$_POST['carname'];
@@ -49,7 +50,7 @@ else{
 ?>
 <body>
     
-<div class="container">
+<div class="container"style="margin-top:120px">
     <div class="row">
         <div class="col-lg-8 mx-auto">
             <h1 class="text-center display-2">Cars Registeration</h1>
@@ -88,3 +89,5 @@ else{
 
 </body>
 </html>
+<?php include "footer.php";
+?>

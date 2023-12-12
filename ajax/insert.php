@@ -8,11 +8,11 @@ $pass=$_POST['pass'];
 
 if(!$uname=="" && !$email=="" && !$pass==""){
 
-$query="INSERT INTO `user_details`(`id`, `uname`, `email`, `pass`) VALUES ('$id','$uname','$email','$pass')";
+$query="INSERT INTO `user_details`(`id`, `uname`, `email`, `pass`) VALUES ('$id','$uname','$email','$pass') ON DUPLICATE KEY UPDATE `uname`='$uname',`email`='$email', `pass`='$pass'";
 $result=mysqli_query($con, $query) or die("Query failed");
 if($result){
 
-echo 'Record Inserted successfully.';
+echo 'Success.';
 }
 
 else{
