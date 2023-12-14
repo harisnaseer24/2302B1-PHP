@@ -10,14 +10,32 @@ include("./nav.php");
 </style>
 <div class="container my-5">
 <div class="abc d-flex justify-content-center text-center flex-wrap">
-<a href="index.php?get=all" class="btn btn-outline-dark rounded-5 mt-5 p-3 mx-auto">ALL</a>
+  <?php 
+  if(isset($_GET['brand_id'])){
+    $active="";
+  }else{
+    $active="active";
+  }
+  
+  
+  
+  ?>
+<a href="index.php?get=all" class="btn btn-outline-dark rounded-5 mt-5 p-3 mx-auto <?=$active?>">&nbsp;&nbsp;ALL&nbsp;&nbsp;</a>
 <?php 
             $getBrands="SELECT * From `brands`;";
             $getBrands_run=mysqli_query($con, $getBrands) or die("failed");
             if(mysqli_num_rows( $getBrands_run) > 0){
                 while($brand=mysqli_fetch_assoc($getBrands_run)){
+                  if(isset($_GET['brand_id'])){
+
+                
+                  if($_GET['brand_id']==$brand['brand_id']){
+                    $activecat="active";
+                  }else{
+                    $activecat="";
+                  }  }
                     ?>
-                    <a href="index.php?brand_id=<?=$brand['brand_id']?>" class="btn btn-outline-dark rounded-5 mt-5 p-3 mx-auto"><?=$brand['brand_name']?></a>        
+                    <a href="index.php?brand_id=<?=$brand['brand_id']?>" class="btn btn-outline-dark rounded-5 mt-5 p-3 mx-auto <?=$activecat?>"><?=$brand['brand_name']?></a>        
                     <?php
                 }
             }            
@@ -33,7 +51,7 @@ $getCarsByBrand_run=mysqli_query($con, $getCarsByBrand) or die("failed");
                if(mysqli_num_rows( $getCarsByBrand_run) > 0){
                    while($car=mysqli_fetch_assoc($getCarsByBrand_run)){
                        ?>
-                     <div class="col-lg-4 col-md-6 col-sm-12 my-3">
+                     <div class="col-lg-4 col-md-6 col-sm-12 my-3" data-aos="zoom-out-up">
                      <div class="card">
   <img src="./img/<?=$car['image']?>" class="card-img-top" alt="..." height=300>
   <div class="card-body">
@@ -57,7 +75,7 @@ $getCarsByBrand_run=mysqli_query($con, $getCarsByBrand) or die("failed");
                if(mysqli_num_rows( $getCars_run) > 0){
                    while($car=mysqli_fetch_assoc($getCars_run)){
                        ?>
-                     <div class="col-lg-4 col-md-6 col-sm-12 my-3">
+                     <div class="col-lg-4 col-md-6 col-sm-12 my-3" data-aos="fade-up-right">
                      <div class="card">
   <img src="./img/<?=$car['image']?>" class="card-img-top" alt="..." height=300>
   <div class="card-body">
@@ -86,7 +104,9 @@ $getCarsByBrand_run=mysqli_query($con, $getCarsByBrand) or die("failed");
 
 
 
-
+<script>
+  AOS.init();
+</script>
 
 <?php 
 include("./footer.php");
