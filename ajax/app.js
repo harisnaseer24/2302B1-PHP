@@ -43,7 +43,7 @@ $.ajax({
     //    console.log(userid);
         $.ajax({
             method:"POST",
-            url:"trash.php",
+            url:"delete.php",
             data:{
                 id:userid
             },
