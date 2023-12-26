@@ -1,7 +1,5 @@
 $(document).ready(function(){
-   
     tablebody=$("#tab");
-
     function getTrashData(){
 $.ajax({
     method:"POST",
@@ -12,7 +10,6 @@ $.ajax({
         })
     }
     getTrashData();
-
 
     $('tbody').on('click', '.restorebtn', function(){
        let userid=$(this).attr('data-id')

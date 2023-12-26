@@ -10,7 +10,7 @@ $query="DELETE FROM `products` WHERE `id`=$id;";
 $result=mysqli_query($con,$query);
 if($result){
  echo '<script>alert("Record Deleted Succesfully")</script>';
-// header("location : insert.php");
+header("location: index.php");
 
 
 }else{

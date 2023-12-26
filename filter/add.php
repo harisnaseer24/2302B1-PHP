@@ -67,16 +67,10 @@ else{
                 while($brand=mysqli_fetch_assoc($getBrands_run)){
                     ?>
                     <option value="<?=$brand['brand_id']?>"><?=$brand['brand_name']?></option>
-                    
-                    <?php
+             <?php
                 }
             }
-            
-            
             ?>
-            
-            
-            
             </select>
                 <input type="file" name="carimage" id="" class="form-control my-3" accept=".jpg,.png,.jpeg">
                 <input type="submit" name="register" id="" class="form-control my-3 btn btn-dark" >

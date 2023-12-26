@@ -57,7 +57,9 @@ $getCarsByBrand_run=mysqli_query($con, $getCarsByBrand) or die("failed");
   <div class="card-body">
     <h5 class="card-title"><?=$car['name']?> <?=$car['model']?></h5>
     <p class="card-text"><?=$car['brand_name']?></p>
-    <a href="#" class="btn btn-dark"><?=$car['price']?> PKR.</a>
+    <p class="card-text"><?=$car['price']?> PKR.</p>
+    
+    <a href="cardetail.php?car_id=<?=$car['id']?>" class="btn btn-dark">View Details</a>
   </div>
 </div>
                      </div>
@@ -81,7 +83,9 @@ $getCarsByBrand_run=mysqli_query($con, $getCarsByBrand) or die("failed");
   <div class="card-body">
     <h5 class="card-title"><?=$car['name']?> <?=$car['model']?></h5>
     <p class="card-text"><?=$car['brand_name']?></p>
-    <a href="#" class="btn btn-dark"><?=$car['price']?> PKR.</a>
+    <p class="card-text"><?=$car['price']?> PKR.</p>
+    
+    <a href="cardetail.php?car_id=<?=$car['id']?>" class="btn btn-dark">View Details</a>
   </div>
 </div>
                      </div>

@@ -11,7 +11,7 @@ $result=mysqli_query($con, $query);
 if($result){
 
     echo '<script>alert("Record Updated Succesfully")</script>';
-    header("location : index.php");
+    header("location: index.php");
     
     }
     else{
