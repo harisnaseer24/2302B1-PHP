@@ -18,6 +18,10 @@
             <a class="nav-link" href="add.php">Add new car</a>
           </li>
         
+          <li class="nav-item">
+            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i> My cart</a>
+          </li>
+        
         </ul>
         <form class="d-flex mt-3" role="search" method="get" action="search.php">
           <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
